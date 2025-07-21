@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KonneXion - Réseau Humain & Inspirant</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            font-family: 'Inter', sans-serif;
+        }
+        
+        .gradient-bg {
+            background: linear-gradient(135deg, #775CE6 0%, #F98FE4 50%, #00CFFF 100%);
+        }
+        
+        .gradient-text {
+            background: linear-gradient(135deg, #775CE6 0%, #F98FE4 50%, #00CFFF 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .floating-animation {
+            animation: floating 6s ease-in-out infinite;
+        }
+        
+        .floating-animation-delayed {
+            animation: floating 6s ease-in-out infinite;
+            animation-delay: 2s;
+        }
+        
+        @keyframes floating {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+        
+        .pulse-glow {
+            animation: pulse-glow 2s ease-in-out infinite alternate;
+        }
+        
+        @keyframes pulse-glow {
+            from { box-shadow: 0 0 20px rgba(119, 92, 230, 0.3); }
+            to { box-shadow: 0 0 40px rgba(119, 92, 230, 0.6); }
+        }
+        
+        .fade-in {
+            animation: fadeIn 1s ease-in-out;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .hover-scale {
+            transition: transform 0.3s ease;
+        }
+        
+        .hover-scale:hover {
+            transform: scale(1.05);
+        }
+        
+        .glow-button {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .glow-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            transition: left 0.5s;
+        }
+        
+        .glow-button:hover::before {
+            left: 100%;
+        }
+        
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+        
+        .accordion-content.active {
+            max-height: 200px;
+        }
+        
+        .parallax-bg {
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 25%, #cbd5e1 50%, #e2e8f0 75%, #f8fafc 100%);
+            background-size: 400% 400%;
+            animation: gradientShift 8s ease infinite;
+        }
+        
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        
+        .card-shadow {
+            box-shadow: 0 20px 40px rgba(119, 92, 230, 0.1);
+        }
+        
+        .form-glow:focus {
+            box-shadow: 0 0 0 3px rgba(119, 92, 230, 0.3);
+        }
+    </style>
+    <meta name="description" content="test">
+</head>
+<body class="parallax-bg min-h-screen">
+    <!-- Particules flottantes décoratives -->
+    <div class="fixed inset-0 pointer-events-none overflow-hidden">
+        <div class="absolute top-20 left-10 w-4 h-4 bg-purple-400 rounded-full opacity-60 floating-animation"></div>
+        <div class="absolute top-40 right-20 w-6 h-6 bg-pink-400 rounded-full opacity-40 floating-animation-delayed"></div>
+        <div class="absolute bottom-40 left-20 w-3 h-3 bg-blue-400 rounded-full opacity-50 floating-animation"></div>
+        <div class="absolute bottom-20 right-10 w-5 h-5 bg-purple-300 rounded-full opacity-30 floating-animation-delayed"></div>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="relative min-h-screen flex items-center justify-center px-4 py-20">
+        <div class="max-w-6xl mx-auto text-center fade-in">
+            <!-- Badge d'introduction -->
+            <div class="inline-flex items-center px-6 py-3 mb-8 bg-white/80 backdrop-blur-sm rounded-full shadow-lg hover-scale">
+                <i class="fas fa-heart text-pink-500 mr-2"></i>
+                <span class="text-sm font-medium text-gray-700">Réseau humain &amp; authentique</span>
+            </div>
+
+            <!-- Titre principal avec gradient -->
+            <h1 class="text-5xl md:text-7xl font-bold mb-8 leading-tight">
+                Rejoins un réseau<br>
+                <span class="gradient-text">humain &amp; inspirant</span><br>
+                qui te ressemble
+            </h1>
+
+            <!-- Sous-titre -->
+            <p class="text-xl md:text-2xl text-gray-600 mb-12 max-w-4xl mx-auto leading-relaxed">
+                Tu es entrepreneur·e, freelance, en reconversion ou salarié·e en quête de sens ?<br>
+                <strong>KonneXion</strong> t'invite à vivre des cercles où l'on avance ensemble, dans l'authenticité et la bienveillance.
+            </p>
+
+            <!-- Icônes de profils -->
+            <div class="flex justify-center items-center space-x-8 mb-16">
+                <div class="text-center hover-scale">
+                    <div class="w-16 h-16 bg-gradient-to-br from-purple-500 to-pink-500 rounded-full flex items-center justify-center mb-2">
+                        <i class="fas fa-briefcase text-white text-xl"></i>
+                    </div>
+                    <span class="text-sm text-gray-600">Entrepreneur·e</span>
+                </div>
+                <div class="text-center hover-scale">
+                    <div class="w-16 h-16 bg-gradient-to-br from-pink-500 to-blue-400 rounded-full flex items-center justify-center mb-2">
+                        <i class="fas fa-laptop text-white text-xl"></i>
+                    </div>
+                    <span class="text-sm text-gray-600">Freelance</span>
+                </div>
+                <div class="text-center hover-scale">
+                    <div class="w-16 h-16 bg-gradient-to-br from-blue-400 to-purple-500 rounded-full flex items-center justify-center mb-2">
+                        <i class="fas fa-exchange-alt text-white text-xl"></i>
+                    </div>
+                    <span class="text-sm text-gray-600">Reconversion</span>
+                </div>
+                <div class="text-center hover-scale">
+                    <div class="w-16 h-16 bg-gradient-to-br from-purple-500 to-pink-500 rounded-full flex items-center justify-center mb-2">
+                        <i class="fas fa-user-tie text-white text-xl"></i>
+                    </div>
+                    <span class="text-sm text-gray-600">Salarié·e</span>
+                </div>
+            </div>
+
+            <!-- Call to Action principal -->
+            <div class="inline-block">
+                <button onclick="scrollToForm()" class="glow-button gradient-bg text-white px-12 py-6 rounded-full text-xl font-semibold hover-scale pulse-glow transition-all duration-300">
+                    <i class="fas fa-arrow-down mr-3"></i>
+                    Je découvre KonneXion
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Valeurs -->
+    <section class="py-20 px-4">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-4xl md:text-5xl font-bold text-center mb-16 gradient-text">
+                Nos valeurs fondamentales
+            </h2>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-white/80 backdrop-blur-sm rounded-3xl p-8 card-shadow hover-scale">
+                    <div class="w-16 h-16 bg-gradient-to-br from-purple-500 to-pink-500 rounded-full flex items-center justify-center mb-6">
+                        <i class="fas fa-heart text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4 text-gray-800">Authenticité</h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        Sois toi-même, sans masque. Nous valorisons la sincérité et l'expression authentique de chacun dans nos échanges.
+                    </p>
+                </div>
+                
+                <div class="bg-white/80 backdrop-blur-sm rounded-3xl p-8 card-shadow hover-scale">
+                    <div class="w-16 h-16 bg-gradient-to-br from-pink-500 to-blue-400 rounded-full flex items-center justify-center mb-6">
+                        <i class="fas fa-hands-helping text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4 text-gray-800">Bienveillance</h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        Un environnement sûr et bienveillant où chacun peut s'exprimer et grandir en toute confiance.
+                    </p>
+                </div>
+                
+                <div class="bg-white/80 backdrop-blur-sm rounded-3xl p-8 card-shadow hover-scale">
+                    <div class="w-16 h-16 bg-gradient-to-br from-blue-400 to-purple-500 rounded-full flex items-center justify-center mb-6">
+                        <i class="fas fa-rocket text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4 text-gray-800">Croissance</h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        Ensemble, nous avançons et évoluons. Chaque rencontre est une opportunité d'apprentissage mutuel.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Formulaire -->
+    <section id="formulaire" class="py-20 px-4">
+        <div class="max-w-2xl mx-auto">
+            <div class="bg-white/90 backdrop-blur-sm rounded-3xl p-12 card-shadow">
+                <div class="text-center mb-10">
+                    <h2 class="text-4xl font-bold mb-4 gradient-text">
+                        Rejoins notre communauté
+                    </h2>
+                    <p class="text-gray-600 text-lg">
+                        Remplis ce formulaire et nous te recontacterons pour t'inviter à notre prochain cercle.
+                    </p>
+                </div>
+
+                <form class="space-y-6" onsubmit="handleSubmit(event)">
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">
+                            <i class="fas fa-user mr-2 text-purple-500"></i>
+                            Ton prénom *
+                        </label>
+                        <input type="text" required="" class="w-full px-4 py-4 border border-gray-300 rounded-xl focus:outline-none form-glow transition-all duration-300" placeholder="Écris ton prénom ici">
+                    </div>
+
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">
+                            <i class="fas fa-envelope mr-2 text-pink-500"></i>
+                            Ton email *
+                        </label>
+                        <input type="email" required="" class="w-full px-4 py-4 border border-gray-300 rounded-xl focus:outline-none form-glow transition-all duration-300" placeholder="ton.email@exemple.com">
+                    </div>
+
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">
+                            <i class="fas fa-comment mr-2 text-blue-500"></i>
+                            Un petit message (facultatif)
+                        </label>
+                        <textarea rows="4" class="w-full px-4 py-4 border border-gray-300 rounded-xl focus:outline-none form-glow transition-all duration-300" placeholder="Dis-nous ce qui t'amène vers KonneXion..."></textarea>
+                    </div>
+
+                    <button type="submit" class="w-full glow-button gradient-bg text-white py-6 rounded-xl text-xl font-semibold hover-scale pulse-glow transition-all duration-300">
+                        <i class="fas fa-paper-plane mr-3"></i>
+                        Je demande ma place
+                    </button>
+                </form>
+
+                <div class="mt-8 text-center">
+                    <p class="text-sm text-gray-500">
+                        <i class="fas fa-lock mr-1"></i>
+                        Tes données sont protégées et ne seront jamais partagées.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section FAQ -->
+    <section class="py-20 px-4">
+        <div class="max-w-4xl mx-auto">
+            <h2 class="text-4xl md:text-5xl font-bold text-center mb-16 gradient-text">
+                Questions fréquentes
+            </h2>
+
+            <div class="space-y-4">
+                <div class="bg-white/80 backdrop-blur-sm rounded-2xl card-shadow overflow-hidden">
+                    <button onclick="toggleAccordion(0)" class="w-full px-8 py-6 text-left flex items-center justify-between hover:bg-gray-50 transition-colors">
+                        <div class="flex items-center">
+                            <i class="fas fa-question-circle text-purple-500 mr-4 text-xl"></i>
+                            <span class="text-xl font-semibold text-gray-800">C'est pour moi ?</span>
+                        </div>
+                        <i class="fas fa-chevron-down text-gray-500 accordion-icon-0 transition-transform"></i>
+                    </button>
+                    <div class="accordion-content accordion-content-0 px-8 pb-6">
+                        <p class="text-gray-600 leading-relaxed">
+                            Si tu es entrepreneur·e, freelance, en reconversion professionnelle ou salarié·e en quête de sens, alors oui ! KonneXion s'adresse à toutes les personnes qui souhaitent évoluer dans un environnement bienveillant et authentique. Peu importe ton secteur d'activité ou ton niveau d'expérience, l'important est ta motivation à grandir et à partager.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="bg-white/80 backdrop-blur-sm rounded-2xl card-shadow overflow-hidden">
+                    <button onclick="toggleAccordion(1)" class="w-full px-8 py-6 text-left flex items-center justify-between hover:bg-gray-50 transition-colors">
+                        <div class="flex items-center">
+                            <i class="fas fa-euro-sign text-pink-500 mr-4 text-xl"></i>
+                            <span class="text-xl font-semibold text-gray-800">Est-ce payant ?</span>
+                        </div>
+                        <i class="fas fa-chevron-down text-gray-500 accordion-icon-1 transition-transform"></i>
+                    </button>
+                    <div class="accordion-content accordion-content-1 px-8 pb-6">
+                        <p class="text-gray-600 leading-relaxed">
+                            Les premiers cercles de découverte sont entièrement gratuits ! Nous voulons que tu puisses découvrir l'esprit KonneXion sans engagement. Par la suite, certains ateliers spécialisés ou événements premium peuvent avoir un coût symbolique pour couvrir les frais d'organisation, mais notre priorité reste l'accessibilité pour tous.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="bg-white/80 backdrop-blur-sm rounded-2xl card-shadow overflow-hidden">
+                    <button onclick="toggleAccordion(2)" class="w-full px-8 py-6 text-left flex items-center justify-between hover:bg-gray-50 transition-colors">
+                        <div class="flex items-center">
+                            <i class="fas fa-map-marker-alt text-blue-500 mr-4 text-xl"></i>
+                            <span class="text-xl font-semibold text-gray-800">Où et quand ça se passe ?</span>
+                        </div>
+                        <i class="fas fa-chevron-down text-gray-500 accordion-icon-2 transition-transform"></i>
+                    </button>
+                    <div class="accordion-content accordion-content-2 px-8 pb-6">
+                        <p class="text-gray-600 leading-relaxed">
+                            Nos cercles ont lieu principalement en présentiel dans des lieux inspirants (espaces de coworking, cafés, parcs...) selon la météo et la saison. Nous organisons également des rencontres en ligne pour ceux qui sont éloignés géographiquement. La fréquence est d'environ 2 fois par mois, avec des créneaux en soirée ou le weekend pour s'adapter aux emplois du temps de chacun.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Témoignages -->
+    <section class="py-20 px-4">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-4xl md:text-5xl font-bold text-center mb-16 gradient-text">
+                Ils ont rejoint KonneXion
+            </h2>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-white/80 backdrop-blur-sm rounded-3xl p-8 card-shadow hover-scale">
+                    <div class="flex items-center mb-6">
+                        <img src="https://placehold.co/60x60" alt="Sarah" class="w-15 h-15 rounded-full mr-4">
+                        <div>
+                            <h4 class="font-semibold text-gray-800">Sarah M.</h4>
+                            <p class="text-sm text-gray-600">Entrepreneure</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 italic leading-relaxed">
+                        "KonneXion m'a permis de sortir de l'isolement entrepreneurial. J'ai trouvé une communauté qui me comprend et m'inspire au quotidien."
+                    </p>
+                    <div class="flex text-yellow-400 mt-4">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                </div>
+
+                <div class="bg-white/80 backdrop-blur-sm rounded-3xl p-8 card-shadow hover-scale">
+                    <div class="flex items-center mb-6">
+                        <img src="https://placehold.co/60x60" alt="Marc" class="w-15 h-15 rounded-full mr-4">
+                        <div>
+                            <h4 class="font-semibold text-gray-800">Marc L.</h4>
+                            <p class="text-sm text-gray-600">En reconversion</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 italic leading-relaxed">
+                        "Grâce aux cercles, j'ai clarifié ma vision et trouvé le courage de me lancer dans ma nouvelle voie. L'accompagnement est exceptionnel."
+                    </p>
+                    <div class="flex text-yellow-400 mt-4">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                </div>
+
+                <div class="bg-white/80 backdrop-blur-sm rounded-3xl p-8 card-shadow hover-scale">
+                    <div class="flex items-center mb-6">
+                        <img src="https://placehold.co/60x60" alt="Julie" class="w-15 h-15 rounded-full mr-4">
+                        <div>
+                            <h4 class="font-semibold text-gray-800">Julie R.</h4>
+                            <p class="text-sm text-gray-600">Freelance</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 italic leading-relaxed">
+                        "Une communauté authentique où l'on peut être soi-même. J'ai développé mon réseau professionnel mais surtout trouvé de vrais amis."
+                    </p>
+                    <div class="flex text-yellow-400 mt-4">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-16 px-4 bg-white/50 backdrop-blur-sm">
+        <div class="max-w-4xl mx-auto text-center">
+            <h3 class="text-3xl font-bold mb-6 gradient-text">KonneXion</h3>
+            <p class="text-gray-600 mb-8 max-w-2xl mx-auto">
+                Ensemble, créons un monde professionnel plus humain, authentique et bienveillant.
+            </p>
+            
+            <div class="flex justify-center space-x-6 mb-8">
+                <a href="#" class="w-12 h-12 bg-gradient-to-br from-purple-500 to-pink-500 rounded-full flex items-center justify-center text-white hover-scale">
+                    <i class="fab fa-linkedin"></i>
+                </a>
+                <a href="#" class="w-12 h-12 bg-gradient-to-br from-pink-500 to-blue-400 rounded-full flex items-center justify-center text-white hover-scale">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="#" class="w-12 h-12 bg-gradient-to-br from-blue-400 to-purple-500 rounded-full flex items-center justify-center text-white hover-scale">
+                    <i class="fab fa-facebook"></i>
+                </a>
+            </div>
+            
+            <p class="text-sm text-gray-500">
+                © 2025 KonneXion. Fait avec <i class="fas fa-heart text-pink-500"></i> pour connecter les humains.
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        function scrollToForm() {
+            document.getElementById('formulaire').scrollIntoView({
+                behavior: 'smooth'
+            });
+        }
+
+        function toggleAccordion(index) {
+            const content = document.querySelector(`.accordion-content-${index}`);
+            const icon = document.querySelector(`.accordion-icon-${index}`);
+            
+            // Fermer tous les autres accordéons
+            for (let i = 0; i < 3; i++) {
+                if (i !== index) {
+                    document.querySelector(`.accordion-content-${i}`).classList.remove('active');
+                    document.querySelector(`.accordion-icon-${i}`).style.transform = 'rotate(0deg)';
+                }
+            }
+            
+            // Toggle l'accordéon actuel
+            content.classList.toggle('active');
+            
+            if (content.classList.contains('active')) {
+                icon.style.transform = 'rotate(180deg)';
+            } else {
+                icon.style.transform = 'rotate(0deg)';
+            }
+        }
+
+        function handleSubmit(event) {
+            event.preventDefault();
+            
+            // Animation du bouton
+            const button = event.target.querySelector('button[type="submit"]');
+            const originalText = button.innerHTML;
+            
+            button.innerHTML = '<i class="fas fa-spinner fa-spin mr-3"></i>Envoi en cours...';
+            button.disabled = true;
+            
+            // Simulation d'envoi
+            setTimeout(() => {
+                button.innerHTML = '<i class="fas fa-check mr-3"></i>Demande envoyée !';
+                button.classList.remove('gradient-bg');
+                button.classList.add('bg-green-500');
+                
+                setTimeout(() => {
+                    button.innerHTML = originalText;
+                    button.disabled = false;
+                    button.classList.add('gradient-bg');
+                    button.classList.remove('bg-green-500');
+                    event.target.reset();
+                }, 2000);
+            }, 1500);
+        }
+
+        // Animation au scroll
+        window.addEventListener('scroll', () => {
+            const elements = document.querySelectorAll('.hover-scale');
+            elements.forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+                const elementVisible = 150;
+                
+                if (elementTop < window.innerHeight - elementVisible) {
+                    element.style.opacity = '1';
+                    element.style.transform = 'translateY(0)';
+                }
+            });
+        });
+
+        // Effet de parallaxe léger
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const parallax = document.querySelector('.parallax-bg');
+            const speed = scrolled * 0.5;
+            
+            parallax.style.transform = `translateY(${speed}px)`;
+        });
+    </script>
+</body>
+</html>
